@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexera — Giao quyền có kiểm soát</title>
+    <meta name="description" content="Nexera giúp lãnh đạo giao quyền có kiểm soát và theo dõi kết quả thực thi." />
+    <link rel="icon" type="image/jpeg" href="logo.jpg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#dashboard" aria-label="Nexera home"><img class="brand-logo" src="logo.jpg" alt="Nexera" /></a>
+        <p class="workspace">CÔNG TY MINH AN</p>
+        <nav id="mainNav" class="nav">
+          <a class="active" href="#dashboard" data-page="dashboard"><span>◫</span> Tổng quan</a>
+          <a href="#profiles" data-page="profiles"><span>◇</span> Đang chuyển giao</a>
+          <a href="#exceptions" data-page="exceptions"><span>!</span> Ngoại lệ <b id="exceptionBadge">0</b></a>
+          <a href="#knowledge" data-page="knowledge"><span>▤</span> Tri thức</a>
+          <a href="#reports" data-page="reports"><span>↗</span> Báo cáo</a>
+        </nav>
+        <div class="sidebar-footer"><button id="resetDemo" class="text-button">↺ Khôi phục dữ liệu mẫu</button><div class="user"><span class="avatar">NP</span><span><strong>Nguyên Phương</strong><small>CEO</small></span><span class="chevron">⌄</span></div></div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar"><div id="breadcrumb">Tổng quan</div><div class="top-actions"><button class="icon-button" aria-label="Thông báo">◌</button><button class="icon-button" aria-label="Trợ giúp">?</button><button id="startDelegation" class="primary-button">＋ Giải phóng một công việc</button></div></header>
+        <section id="view" class="view" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <dialog id="delegationDialog" class="dialog wizard-dialog"><form method="dialog" id="delegationForm"><div class="dialog-head"><div><p class="eyebrow">TẠO HỒ SƠ CHUYỂN GIAO</p><h2>Giải phóng một công việc</h2><p class="muted">Thiết lập một phạm vi tự quyết rõ ràng và an toàn.</p></div><button class="close" value="cancel" aria-label="Đóng">×</button></div><div class="stepper" id="stepper"></div><div id="wizardBody"></div><div class="dialog-footer"><button id="wizardBack" type="button" class="secondary-button">Quay lại</button><span class="step-label" id="stepLabel"></span><button id="wizardNext" type="button" class="primary-button">Tiếp tục</button></div></form></dialog>
+
+    <dialog id="executionDialog" class="dialog"><form method="dialog" id="executionForm"><div class="dialog-head"><div><p class="eyebrow">GHI NHẬN LẦN THỰC HIỆN</p><h2>Tạo yêu cầu quyết định</h2><p class="muted">Nexera sẽ kiểm tra yêu cầu theo phiên bản quyền đang hiệu lực.</p></div><button class="close" value="cancel" aria-label="Đóng">×</button></div><div id="executionBody"></div><div class="dialog-footer"><button value="cancel" class="secondary-button">Hủy</button><button id="submitExecution" type="button" class="primary-button">Kiểm tra quyền</button></div></form></dialog>
+
+    <dialog id="reviewDialog" class="dialog"><form method="dialog"><div class="dialog-head"><div><p class="eyebrow">RÀ SOÁT HỒ SƠ</p><h2 id="reviewTitle">Rà soát chuyển giao</h2><p class="muted">Xem kết quả trước khi điều chỉnh phạm vi quyền.</p></div><button class="close" value="cancel" aria-label="Đóng">×</button></div><div id="reviewBody"></div><div class="dialog-footer"><button value="cancel" class="secondary-button">Đóng</button><button id="keepAuthority" type="button" class="primary-button">Giữ nguyên quyền</button></div></form></dialog>
+
+    <div id="toast" class="toast" role="status"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" referrerpolicy="no-referrer"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

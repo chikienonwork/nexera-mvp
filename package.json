@@ -1,0 +1,9 @@
+{
+  "name": "nexera-mvp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Nexera — giao quyền có kiểm soát (frontend prototype)",
+  "scripts": {
+    "start": "node server.mjs"
+  }
+}
